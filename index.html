@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,40 +9,92 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
     <div class="calculator">
         <div class="calculator-header">
             <h2>Calculator</h2>
+            <div class="header-controls">
+                <button class="control-btn" id="historyBtn" title="View History">📋</button>
+                <button class="control-btn" id="saveBtn" title="Save Calculation">💾</button>
+                <button class="control-btn" id="loadBtn" title="Load Saved">📂</button>
+            </div>
         </div>
         <input type="text" id="display" readonly placeholder="0">
-        <div class="buttons"></div>
-        <button class="btn btn-clear">C</button>
-        <button class="btn btn-operator" data-op="/">/</button>
-        <button class="btn btn-operator" data-op="*">*</button>
-        <button class="btn btn-operator" data-op="-">-</button>
+        <div class="buttons">
+            <button class="btn btn-clear">C</button>
+            <button class="btn btn-clear">±</button>
+            <button class="btn btn-clear">%</button>
+            <button class="btn btn-operator" data-op="/">÷</button>
 
-        <button class="btn btn-number" data-num="7">7</button>
-        <button class="btn btn-number" data-num="8">8</button>
-        <button class="btn btn-number" data-num="9">9</button>
-        <button class="btn btn-operator" data-op="+">+</button>
+            <button class="btn btn-number" data-num="7">7</button>
+            <button class="btn btn-number" data-num="8">8</button>
+            <button class="btn btn-number" data-num="9">9</button>
+            <button class="btn btn-operator" data-op="*">×</button>
 
-        <button class="btn btn-number" data-num="4">4</button>
-        <button class="btn btn-number" data-num="5">5</button>
-        <button class="btn btn-number" data-num="6">6</button>
+            <button class="btn btn-number" data-num="4">4</button>
+            <button class="btn btn-number" data-num="5">5</button>
+            <button class="btn btn-number" data-num="6">6</button>
+            <button class="btn btn-operator" data-op="-">−</button>
 
-        <button class="btn btn-number" data-num="1">1</button>
-        <button class="btn btn-number" data-num="2">2</button>
-        <button class="btn btn-number" data-num="3">3</button>
-        <button class="btn btn-equal">=</button>
+            <button class="btn btn-number" data-num="1">1</button>
+            <button class="btn btn-number" data-num="2">2</button>
+            <button class="btn btn-number" data-num="3">3</button>
+            <button class="btn btn-operator" data-op="+">+</button>
 
-        <button class="btn btn-number zero-btn" data-num="0">0</button>
-        <button class="btn btn-number" data-num=".">.</button>
+            <button class="btn btn-number zero-btn" data-num="0">0</button>
+            <button class="btn btn-number" data-num=".">.</button>
+            <button class="btn btn-equal">=</button>
+        </div>
     </div>
+
+    <!-- History Panel -->
+    <div class="history-panel" id="historyPanel">
+        <div class="panel-header">
+            <h3>Calculation History</h3>
+            <button class="close-btn" id="closeHistory">×</button>
+        </div>
+        <div class="history-content" id="historyContent">
+            <p class="empty-message">No calculations yet</p>
+        </div>
+        <div class="panel-footer">
+            <button class="panel-btn clear-history-btn" id="clearHistory">Clear All</button>
+        </div>
     </div>
+
+    <!-- Save Panel -->
+    <div class="save-panel" id="savePanel">
+        <div class="panel-header">
+            <h3>Save Calculation</h3>
+            <button class="close-btn" id="closeSave">×</button>
+        </div>
+        <div class="save-content">
+            <input type="text" id="saveNameInput" placeholder="Enter name for this calculation" maxlength="50">
+            <div class="save-preview" id="savePreview"></div>
+        </div>
+        <div class="panel-footer">
+            <button class="panel-btn cancel-btn" id="cancelSave">Cancel</button>
+            <button class="panel-btn save-confirm-btn" id="confirmSave">Save</button>
+        </div>
+    </div>
+
+    <!-- Load Panel -->
+    <div class="load-panel" id="loadPanel">
+        <div class="panel-header">
+            <h3>Saved Calculations</h3>
+            <button class="close-btn" id="closeLoad">×</button>
+        </div>
+        <div class="load-content" id="loadContent">
+            <p class="empty-message">No saved calculations</p>
+        </div>
+        <div class="panel-footer">
+            <button class="panel-btn clear-saved-btn" id="clearSaved">Clear All Saved</button>
+        </div>
+    </div>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
 
     <script src="script.js"></script>
 </body>
-
 </html>
